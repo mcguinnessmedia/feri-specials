@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
-type Theme = 'light' | 'dark';
+type Theme = 'hopemarket-light' | 'hopemarket-dark';
 
 function getSystemTheme(): Theme {
-  if (typeof window === 'undefined') return 'light';
+  if (typeof window === 'undefined') return 'hopemarket-light';
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+    ? 'hopemarket-dark'
+    : 'hopemarket-light';
 }
 
 function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'light';
+  if (typeof window === 'undefined') return 'hopemarket-light';
 
   const stored = window.localStorage.getItem('theme');
-  if (stored === 'light' || stored === 'dark') {
+  if (stored === 'hopemarket-light' || stored === 'hopemarket-dark') {
     return stored;
   }
 
@@ -27,7 +27,7 @@ function applyTheme(theme: Theme) {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('hopemarket-light');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -41,9 +41,11 @@ export default function ThemeToggle() {
     const handleChange = () => {
       const stored = window.localStorage.getItem('theme');
 
-      if (stored === 'light' || stored === 'dark') return;
+      if (stored === 'hopemarket-light' || stored === 'hopemarket-dark') return;
 
-      const nextTheme = mediaQuery.matches ? 'dark' : 'light';
+      const nextTheme = mediaQuery.matches
+        ? 'hopemarket-dark'
+        : 'hopemarket-light';
       setTheme(nextTheme);
       applyTheme(nextTheme);
     };
@@ -56,7 +58,8 @@ export default function ThemeToggle() {
   }, []);
 
   function toggleTheme() {
-    const nextTheme: Theme = theme === 'light' ? 'dark' : 'light';
+    const nextTheme: Theme =
+      theme === 'hopemarket-light' ? 'hopemarket-dark' : 'hopemarket-light';
 
     setTheme(nextTheme);
     applyTheme(nextTheme);
@@ -72,13 +75,13 @@ export default function ThemeToggle() {
       <Sun
         size={18}
         strokeWidth={1.75}
-        className={theme === 'light' ? '' : 'opacity-40'}
+        className={theme === 'hopemarket-light' ? '' : 'opacity-40'}
       />
 
       <input
         type='checkbox'
         className='toggle toggle-sm sm:toggle-md'
-        checked={theme === 'dark'}
+        checked={theme === 'hopemarket-dark'}
         onChange={toggleTheme}
         aria-label='Toggle dark mode'
       />
@@ -86,7 +89,7 @@ export default function ThemeToggle() {
       <Moon
         size={18}
         strokeWidth={1.75}
-        className={theme === 'dark' ? '' : 'opacity-40'}
+        className={theme === 'hopemarket-dark' ? '' : 'opacity-40'}
       />
     </label>
   );
