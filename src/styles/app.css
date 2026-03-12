@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@theme {
+  /* optional brand tokens later */
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
