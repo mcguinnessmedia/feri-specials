@@ -34,7 +34,10 @@ function groupAreaItems(
       });
     }
 
-    groups.get(key)!.items.push(item);
+    const group = groups.get(key);
+    if (group) {
+      group.items.push(item);
+    }
   }
 
   return [...groups.values()].sort((a, b) => {

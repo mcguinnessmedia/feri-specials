@@ -7,15 +7,11 @@ const specialsItemSchema = z.object({
   price: z.string(),
   unlimited: z.boolean(),
   special: z.boolean(),
-  locations: z.array(z.number().int().min(1)),
+  locations: z.array(z.number().int().min(1).max(8)),
 });
 
 const specialsApiResponseSchema = z.object({
   lastUpdated: z.string(),
-  marketOpen: z.boolean(),
-  dateLabel: z.string(),
-  footerLeft: z.string(),
-  footerCenter: z.string(),
   fridge: z.array(specialsItemSchema),
   freezer: z.array(specialsItemSchema),
 });

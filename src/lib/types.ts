@@ -10,10 +10,6 @@ export interface SpecialsItem {
 
 export interface SpecialsApiResponse {
   lastUpdated: string;
-  marketOpen: boolean;
-  dateLabel: string;
-  footerLeft: string;
-  footerCenter: string;
   fridge: SpecialsItem[];
   freezer: SpecialsItem[];
 }
