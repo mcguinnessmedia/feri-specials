@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SpecialsApp from '../components/specials/SpecialsApp';
+import ThemeToggleFloating from '../components/ThemeToggle/ThemeToggleFloating';
 ---
 
 <BaseLayout>
+  <ThemeToggleFloating client:load />
+
   <SpecialsApp client:load />
 </BaseLayout>
