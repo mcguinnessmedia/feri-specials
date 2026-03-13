@@ -1,9 +1,5 @@
 import { fetchSpecials } from './api';
-import {
-  getCachedSpecials,
-  getCachedSpecialsIfFresh,
-  setCachedSpecials,
-} from './cache';
+import { getCachedSpecials, setCachedSpecials } from './cache';
 import { groupSpecials } from './group';
 import type { GroupedSpecials, SpecialsApiResponse } from './types';
 
@@ -63,34 +59,18 @@ export class SpecialsClient {
   }
 
   async init(): Promise<void> {
-    const freshCached = getCachedSpecialsIfFresh();
+    const cached = getCachedSpecials();
 
-    if (freshCached) {
+    if (cached) {
       this.setState({
-        raw: freshCached,
-        grouped: groupSpecials(freshCached),
+        raw: cached,
+        grouped: groupSpecials(cached),
         loading: false,
         error: null,
         fromCache: true,
       });
 
-      // Quiet background revalidation
       void this.refresh({ silent: true });
-      return;
-    }
-
-    const anyCached = getCachedSpecials();
-
-    if (anyCached) {
-      this.setState({
-        raw: anyCached,
-        grouped: groupSpecials(anyCached),
-        loading: true,
-        error: null,
-        fromCache: true,
-      });
-
-      await this.refresh({ silent: true });
       return;
     }
 
@@ -98,6 +78,7 @@ export class SpecialsClient {
       ...this.state,
       loading: true,
       error: null,
+      fromCache: false,
     });
 
     await this.refresh({ silent: false });

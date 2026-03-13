@@ -8,6 +8,10 @@ interface CachedSpecials {
   data: SpecialsApiResponse;
 }
 
+function isExpired(fetchedAt: number): boolean {
+  return Date.now() - fetchedAt > CACHE_TTL_MS;
+}
+
 function readCache(): CachedSpecials | null {
   if (typeof window === 'undefined') return null;
 
@@ -18,11 +22,18 @@ function readCache(): CachedSpecials | null {
     const parsed = JSON.parse(raw) as CachedSpecials;
 
     if (!parsed?.data || typeof parsed?.fetchedAt !== 'number') {
+      window.localStorage.removeItem(CACHE_KEY);
+      return null;
+    }
+
+    if (isExpired(parsed.fetchedAt)) {
+      window.localStorage.removeItem(CACHE_KEY);
       return null;
     }
 
     return parsed;
   } catch {
+    window.localStorage.removeItem(CACHE_KEY);
     return null;
   }
 }
@@ -32,11 +43,7 @@ export function getCachedSpecials(): SpecialsApiResponse | null {
 }
 
 export function getCachedSpecialsIfFresh(): SpecialsApiResponse | null {
-  const cached = readCache();
-  if (!cached) return null;
-
-  const age = Date.now() - cached.fetchedAt;
-  return age <= CACHE_TTL_MS ? cached.data : null;
+  return readCache()?.data ?? null;
 }
 
 export function getCachedSpecialsAgeMs(): number | null {
