@@ -2,7 +2,7 @@ import type { SpecialsItem } from '../../lib/types';
 
 export default function SpecialsItemRow({ item }: { item: SpecialsItem }) {
   return (
-    <li className='rounded-box border border-base-300 bg-base-100 p-3 sm:p-4'>
+    <li className='rounded-box border border-base-300 bg-base-300 p-3 sm:p-4'>
       <div className='flex items-start justify-between gap-3'>
         <div className='min-w-0 flex-1'>
           <div className='text-sm font-medium leading-tight sm:text-base'>

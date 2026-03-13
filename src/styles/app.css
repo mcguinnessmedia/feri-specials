@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @import 'tailwindcss';
 
 @plugin "daisyui" {
@@ -16,7 +18,7 @@
   /* Brand + semantic tokens */
   --color-base-100: #edf3f2;
   --color-base-200: #d4e3e0;
-  --color-base-300: #afcac4;
+  --color-base-300: #edf3f2;
   --color-base-content: #2a2f40;
 
   --color-primary: #00566b;
@@ -60,13 +62,13 @@
   prefersdark: false;
   color-scheme: dark;
 
-  --color-base-100: oklch(20% 0.02 260);
-  --color-base-200: oklch(24% 0.02 260);
-  --color-base-300: oklch(28% 0.02 260);
-  --color-base-content: oklch(94% 0.01 260);
+  --color-base-100: #2a2f40;
+  --color-base-200: #363e56;
+  --color-base-300: #00566b;
+  --color-base-content: #edf3f2;
 
-  --color-primary: oklch(72% 0.16 145);
-  --color-primary-content: oklch(18% 0.02 145);
+  --color-primary: #fab914;
+  --color-primary-content: #2a2f40;
 
   --color-secondary: oklch(78% 0.12 80);
   --color-secondary-content: oklch(18% 0.02 80);
@@ -90,10 +92,18 @@
   --color-error-content: oklch(18% 0.02 25);
 
   --radius-selector: 999rem;
-  --radius-field: 0.75rem;
-  --radius-box: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
 
   --border: 1px;
   --depth: 1;
   --noise: 0;
+}
+
+body {
+  font-family: 'Palanquin', sans-serif;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: Rubik, sans-serif;
 }
