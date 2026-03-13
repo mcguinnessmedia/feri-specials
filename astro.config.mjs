@@ -6,7 +6,8 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hopemarket.feedri.org',
+  site: 'https://mcguinnessmedia.github.io',
+  base: '/feri-specials',
 
   vite: {
     plugins: [tailwindcss()],
