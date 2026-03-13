@@ -8,20 +8,21 @@ export default function SpecialsItemRow({ item }: { item: SpecialsItem }) {
           <div className='text-sm font-medium leading-tight sm:text-base'>
             {item.name}
           </div>
+          {item.special || item.unlimited ? (
+            <div className='mt-2 flex flex-wrap gap-2'>
+              {item.special ? (
+                <span className='badge badge-primary badge-sm sm:badge-md'>
+                  Special
+                </span>
+              ) : null}
 
-          <div className='mt-2 flex flex-wrap gap-2'>
-            {item.special ? (
-              <span className='badge badge-primary badge-sm sm:badge-md'>
-                Special
-              </span>
-            ) : null}
-
-            {item.unlimited ? (
-              <span className='badge badge-outline badge-sm sm:badge-md'>
-                No Limit
-              </span>
-            ) : null}
-          </div>
+              {item.unlimited ? (
+                <span className='badge badge-outline badge-sm sm:badge-md'>
+                  No Limit
+                </span>
+              ) : null}
+            </div>
+          ) : null}
         </div>
 
         <div className='shrink-0 text-base font-bold sm:text-lg'>
