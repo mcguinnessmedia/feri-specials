@@ -43,11 +43,13 @@ export default function SpecialsApp() {
   return (
     <main className='mx-auto w-full max-w-6xl px-4 py-4 sm:px-6 sm:py-6'>
       <header className='mb-4 sm:mb-6'>
-        <h1 className='text-2xl font-bold sm:text-3xl'>Hope Market Specials</h1>
+        <h1 className='text-3xl font-bold sm:text-3xl'>
+          Daily Fridge & Freezer Specials
+        </h1>
 
         <div className='mt-2 flex flex-wrap items-center gap-2 text-sm opacity-80'>
           {state.raw?.lastUpdated ? (
-            <span>Updated {formatUpdatedTime(state.raw.lastUpdated)}</span>
+            <span>Last updated {formatUpdatedTime(state.raw.lastUpdated)}</span>
           ) : (
             <span>&nbsp;</span>
           )}
@@ -60,6 +62,11 @@ export default function SpecialsApp() {
             <span className='badge badge-ghost badge-sm'>Cached</span>
           ) : null}
         </div>
+
+        <aside className='mt-2 rounded-box text-sm bg-base-200 w-full p-3'>
+          Fridge &amp; freezer specials are available while supplies last. Limit
+          1 of each item per customer unless otherwise noted.
+        </aside>
       </header>
 
       {state.error ? <SpecialsError message={state.error} /> : null}
@@ -69,6 +76,18 @@ export default function SpecialsApp() {
       ) : (
         <SpecialsTabs grouped={state.grouped} />
       )}
+
+      <footer className='bg-base-200 w-full p-4 mt-4 rounded-box'>
+        Learn more at{' '}
+        <a
+          className='font-semibold underline hover:no-underline text-primary'
+          href='https://feedri.org'
+          target='_blank'
+        >
+          FeedRI.org
+        </a>
+        .
+      </footer>
     </main>
   );
 }
