@@ -14,18 +14,18 @@
   color-scheme: light;
 
   /* Brand + semantic tokens */
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(97% 0.01 95);
-  --color-base-300: oklch(92% 0.02 95);
-  --color-base-content: oklch(22% 0.02 260);
+  --color-base-100: #edf3f2;
+  --color-base-200: #d4e3e0;
+  --color-base-300: #afcac4;
+  --color-base-content: #2a2f40;
 
-  --color-primary: oklch(62% 0.18 145);
-  --color-primary-content: oklch(98% 0.01 145);
+  --color-primary: #00566b;
+  --color-primary-content: #edf3f2;
 
-  --color-secondary: oklch(72% 0.12 80);
+  --color-secondary: #20a3ab;
   --color-secondary-content: oklch(18% 0.02 80);
 
-  --color-accent: oklch(70% 0.16 35);
+  --color-accent: #fab914;
   --color-accent-content: oklch(98% 0.01 35);
 
   --color-neutral: oklch(30% 0.02 260);
@@ -45,8 +45,8 @@
 
   /* Shape / chrome tokens */
   --radius-selector: 999rem;
-  --radius-field: 0.75rem;
-  --radius-box: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
 
   --border: 1px;
   --depth: 1;
