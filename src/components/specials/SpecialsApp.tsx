@@ -47,7 +47,7 @@ export default function SpecialsApp() {
           <div className='flex flex-col gap-4 md:flex-row md:gap-4'>
             <div className='inline-flex items-center rounded-md border border-base-300 bg-[#edf3f2] pl-3 pr-2 py-2 w-fit'>
               <img
-                src='/images/feedri-hopemarket-logo.png'
+                src='/feri-specials/images/feedri-hopemarket-logo.png'
                 alt='FeedRI Hope Market'
                 className='h-10 w-auto sm:h-12'
               />
