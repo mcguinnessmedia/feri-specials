@@ -32,6 +32,8 @@ jobs:
 
       - name: Build with Astro
         uses: withastro/action@v4
+        env:
+          PUBLIC_SPECIALS_API_URL: ${{ vars.PUBLIC_SPECIALS_API_URL }}
 
   deploy:
     needs: build
