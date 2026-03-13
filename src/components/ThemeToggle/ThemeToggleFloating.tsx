@@ -27,7 +27,7 @@ export default function ThemeToggleFloating() {
       ].join(' ')}
       aria-label='Appearance settings'
     >
-      <div className='rounded-full border border-base-300 bg-base-200/80 p-1 shadow-md backdrop-blur hover:bg-base-200/90'>
+      <div className='rounded-full border border-base-200 bg-base-200/80 p-1 shadow-md backdrop-blur hover:bg-base-200/90'>
         <ThemeToggle />
       </div>
     </div>
